@@ -1,0 +1,39 @@
+# ─── OS / Editor ───────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.pem
+.vscode/
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# ─── Environment / Secrets ──────────────────────────────────
+.env
+.env.*
+
+# ─── Java / Maven (backend) ─────────────────────────────────
+backend/target/
+backend/.mvn/wrapper/maven-wrapper.jar
+backend/HELP.md
+
+# ─── Node / Next.js (client) ────────────────────────────────
+client/node_modules/
+client/.next/
+client/out/
+client/build/
+client/coverage/
+client/.pnp
+client/.pnp.*
+client/.yarn/*
+!client/.yarn/patches
+!client/.yarn/plugins
+!client/.yarn/releases
+!client/.yarn/versions
+client/npm-debug.log*
+client/yarn-debug.log*
+client/yarn-error.log*
+client/.pnpm-debug.log*
+client/*.tsbuildinfo
+client/next-env.d.ts
+client/.vercel
