@@ -51,6 +51,15 @@ public class SecurityConfig {
             .oauth2Login(oauth -> oauth
                 .successHandler(oauth2SuccessHandler)
                 .failureHandler(oauth2FailureHandler)
+            )
+            .logout(logout -> logout
+                .logoutUrl("/api/auth/logout")
+                .logoutSuccessHandler((request, response, authentication) ->
+                    response.setStatus(HttpStatus.NO_CONTENT.value())
+                )
+                .invalidateHttpSession(true)
+                .clearAuthentication(true)
+                .deleteCookies("DEVPILOT_SESSION")
             );
 
         return http.build();
