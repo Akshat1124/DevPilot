@@ -1,37 +1,36 @@
-import { LayoutDashboard, MessageSquare, BookOpen, Settings } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+import {
+  FolderGit2,
+  LayoutGrid,
+  Settings,
+  type LucideIcon,
+} from "lucide-react";
 
-export type NavItem = {
+export type DashboardNavItem = {
   title: string;
   href: string;
   icon: LucideIcon;
   exact?: boolean;
 };
 
-export type NavGroup = {
+export type DashboardNavGroup = {
   label: string;
-  items: NavItem[];
+  items: DashboardNavItem[];
 };
 
-export const dashboardNavGroups: NavGroup[] = [
+export const dashboardNavGroups: DashboardNavGroup[] = [
   {
-    label: "General",
+    label: "Workspace",
     items: [
       {
-        title: "Dashboard",
-        href: "/dashboard",
-        icon: LayoutDashboard,
-        exact: true,
+        title: "Overview",
+        href: "/dashboard/overview",
+        icon: LayoutGrid,
       },
       {
         title: "Repositories",
-        href: "/dashboard/repos",
-        icon: BookOpen,
-      },
-      {
-        title: "Chats",
-        href: "/dashboard/chats",
-        icon: MessageSquare,
+        href: "/dashboard",
+        icon: FolderGit2,
+        exact: true,
       },
     ],
   },
@@ -47,15 +46,14 @@ export const dashboardNavGroups: NavGroup[] = [
   },
 ];
 
-/**
- * Returns true when the given pathname matches the nav item's href.
- * If `exact` is true, requires an exact match; otherwise checks prefix.
- */
 export function isDashboardNavActive(
   pathname: string,
   href: string,
   exact = false
-): boolean {
-  if (exact) return pathname === href;
-  return pathname === href || pathname.startsWith(href + "/");
+) {
+  if (exact) {
+    return pathname === href;
+  }
+
+  return pathname === href || pathname.startsWith(`${href}/`);
 }
