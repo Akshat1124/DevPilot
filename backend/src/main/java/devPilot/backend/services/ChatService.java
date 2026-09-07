@@ -110,7 +110,7 @@ public class ChatService {
         String systemPrompt = chatPromptBuilder.systemPrompt(repo.getFullName());
         String userPrompt = chatPromptBuilder.userPrompt(retrievedContext.contextText(), userContent);
 
-        // 5. Stream OpenAI response to the client (SSE)
+        // 5. Stream Google Gemini response to the client (SSE)
         return chatStreamHandler.stream(
                 session.getId(),
                 toMessageResponse(userMessage),
